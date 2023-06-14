@@ -1,44 +1,51 @@
 package br.com.projeto.SpringProjeto;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@Service
-public class UserService {
-    private static final Map<Long, User> request = new HashMap<>(); 
-    
-    public User criar(User user) {
-    	Long proximoId = request.keySet().size() + 1L;
-    	user.setId(proximoId);
-		return user;}
-    
-    public User atualizar(User user, Long userId) {
-    	user.put(userId, user);
-    	return user;
-    }
-    
-    public User getById (long userId) {
-    	return User.get(userId);
-    }
-    
-    public List<User> getAll () {
-    	return new ArrayList<>(User.values());
-    }
-    
-    public String delete(Long userId) {
-    	User.remove(userId);
-    	return "delete";
-    }
-
-	public UserService atualizar(UserService userservice, Long userId) {
+@SpringBootApplication
+public class User {
+	private long id;
+	private String nome;
+	private String senha;
+	private int data;
+	
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public void put(Long userId, User user) {
+		// TODO Auto-generated method stub
+		
+	}
+	public static User get(long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public UserService criar(UserService userservice) {
+	public static Object values() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-}
+	public static void remove(Long userId) {
+		// TODO Auto-generated method stub
+		
+	}
